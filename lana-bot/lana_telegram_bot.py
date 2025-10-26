@@ -379,7 +379,7 @@ if TELEGRAM_AVAILABLE:
             except Exception:
                 pass
 
-        def run_telegram_bot():
+    def run_telegram_bot():
         if not BOT_TOKEN:
             raise SystemExit("TELEGRAM_BOT_TOKEN is missing. Set it or use --local/--test.")
 
@@ -387,13 +387,13 @@ if TELEGRAM_AVAILABLE:
 
         # Создаём Telegram приложение (новый API без Updater)
         app = Application.builder().token(BOT_TOKEN).build()
-
+    
         # Регистрируем команды
         app.add_handler(CommandHandler("start", _tg_start))
         app.add_handler(CommandHandler("help", _tg_help))
         app.add_handler(CommandHandler("reset", _tg_reset))
         app.add_handler(CommandHandler("stats", _tg_stats))
-
+    
         # Регистрируем обработчик текстовых сообщений
         app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, _tg_text))
 
