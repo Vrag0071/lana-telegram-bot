@@ -1,0 +1,5 @@
+# не коммитим секреты и кеш
+.env
+/lana-bot/.env
+__pycache__/
+*.pyc
